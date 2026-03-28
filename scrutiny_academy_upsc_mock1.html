@@ -1,0 +1,1872 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scrutiny Academy | UPSC CSE Mock Test 1 – GS Paper I</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=EB+Garamond:ital,wght@0,400;0,500;1,400&family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --sky: #b8d9f0;
+    --sky-light: #d6ecf9;
+    --sky-dark: #8bbdd9;
+    --ink: #1a1a2e;
+    --ink-mid: #2d3561;
+    --gold: #b8860b;
+    --gold-light: #d4a017;
+    --red: #c0392b;
+    --green: #1a7a4a;
+    --bg: #f4f1eb;
+    --paper: #fdfaf4;
+    --border: #c5b99a;
+    --shadow: rgba(26,26,46,0.12);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: var(--bg);
+    font-family: 'EB Garamond', Georgia, serif;
+    color: var(--ink);
+    min-height: 100vh;
+  }
+
+  /* ── COVER SCREEN ── */
+  #cover {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #e8f4fc 0%, #f4f1eb 50%, #eae4d8 100%);
+    padding: 40px 20px;
+    position: relative;
+    overflow: hidden;
+  }
+  #cover::before {
+    content: '';
+    position: absolute;
+    top: -120px; right: -120px;
+    width: 500px; height: 500px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,217,240,0.4) 0%, transparent 70%);
+  }
+  #cover::after {
+    content: '';
+    position: absolute;
+    bottom: -80px; left: -80px;
+    width: 350px; height: 350px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(184,134,11,0.08) 0%, transparent 70%);
+  }
+
+  .cover-card {
+    background: var(--paper);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    padding: 50px 60px;
+    max-width: 720px;
+    width: 100%;
+    text-align: center;
+    box-shadow: 0 8px 48px var(--shadow), 0 2px 0 var(--gold) inset;
+    position: relative;
+    z-index: 1;
+  }
+
+  .logo-wrap {
+    margin-bottom: 28px;
+  }
+  .logo-wrap img {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    object-fit: cover;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .logo-placeholder {
+    width: 110px;
+    height: 110px;
+    border-radius: 50%;
+    background: var(--sky);
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+  }
+  .logo-placeholder .sa-big { font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--ink); line-height: 1; }
+  .logo-placeholder .sa-script { font-family: 'EB Garamond', serif; font-size: 11px; font-style: italic; color: var(--ink); margin-top: 2px; }
+
+  .org-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--sky-dark);
+    margin-bottom: 24px;
+  }
+
+  .divider {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin: 18px 0;
+  }
+  .divider::before, .divider::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--gold), transparent);
+  }
+  .divider-diamond {
+    width: 8px; height: 8px;
+    background: var(--gold);
+    transform: rotate(45deg);
+  }
+
+  .cover-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    margin-bottom: 8px;
+  }
+  .cover-exam {
+    font-family: 'Playfair Display', serif;
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--ink);
+    line-height: 1.25;
+    margin-bottom: 6px;
+  }
+  .cover-paper {
+    font-family: 'EB Garamond', serif;
+    font-size: 18px;
+    font-style: italic;
+    color: var(--gold);
+    margin-bottom: 28px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin: 24px 0 32px;
+  }
+  .info-box {
+    background: var(--sky-light);
+    border: 1px solid var(--sky-dark);
+    border-radius: 4px;
+    padding: 14px 10px;
+  }
+  .info-box .val {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--ink);
+  }
+  .info-box .lbl {
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    margin-top: 2px;
+  }
+
+  .instructions {
+    background: #fffbf2;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--gold);
+    border-radius: 2px;
+    padding: 18px 20px;
+    text-align: left;
+    margin-bottom: 28px;
+  }
+  .instructions h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 10px;
+  }
+  .instructions li {
+    font-size: 14px;
+    line-height: 1.8;
+    color: var(--ink);
+    margin-left: 18px;
+  }
+
+  .start-btn {
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    padding: 16px 52px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.2s, transform 0.1s;
+    box-shadow: 0 4px 16px rgba(26,26,46,0.2);
+  }
+  .start-btn:hover { background: var(--ink-mid); transform: translateY(-1px); }
+  .start-btn:active { transform: translateY(0); }
+
+  /* ── QUIZ SCREEN ── */
+  #quiz { display: none; }
+
+  .top-bar {
+    background: var(--ink);
+    color: #fff;
+    padding: 0 28px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.3);
+  }
+  .top-bar-left {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+  }
+  .top-logo {
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    background: var(--sky);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .top-logo span { font-family: 'Playfair Display', serif; font-size: 13px; font-weight: 700; color: var(--ink); line-height: 1; }
+  .top-logo small { font-size: 7px; font-style: italic; color: var(--ink); }
+  .top-title { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 600; letter-spacing: 1px; }
+  .top-sub { font-size: 11px; opacity: 0.7; letter-spacing: 0.5px; font-style: italic; }
+
+  .top-right { display: flex; align-items: center; gap: 20px; }
+
+  .timer-box {
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 4px;
+    padding: 6px 16px;
+    text-align: center;
+  }
+  .timer-val {
+    font-family: 'Libre Baskerville', serif;
+    font-size: 20px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: #fff;
+  }
+  .timer-lbl { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.65; }
+  .timer-val.warning { color: #ff8c69; }
+  .timer-val.critical { color: #ff4444; animation: blink 1s infinite; }
+  @keyframes blink { 0%,100%{opacity:1} 50%{opacity:0.4} }
+
+  .score-live {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    text-align: right;
+  }
+  .score-live span { display: block; font-size: 9px; letter-spacing: 2px; text-transform: uppercase; opacity: 0.65; }
+
+  /* ── PROGRESS ── */
+  .progress-bar-wrap {
+    height: 4px;
+    background: rgba(184,134,11,0.2);
+    position: sticky;
+    top: 56px;
+    z-index: 99;
+  }
+  .progress-bar-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--gold), var(--gold-light));
+    transition: width 0.3s ease;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .quiz-body {
+    display: grid;
+    grid-template-columns: 1fr 260px;
+    gap: 0;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 28px 20px;
+    align-items: start;
+  }
+
+  /* ── QUESTION CARD ── */
+  .q-card {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 36px 40px;
+    box-shadow: 0 2px 16px var(--shadow);
+    margin-right: 20px;
+    min-height: 460px;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .q-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    margin-bottom: 24px;
+  }
+  .q-number {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--gold);
+  }
+  .q-marks {
+    font-size: 12px;
+    color: var(--ink-mid);
+    opacity: 0.7;
+    font-style: italic;
+  }
+  .q-subject {
+    display: inline-block;
+    background: var(--sky-light);
+    border: 1px solid var(--sky-dark);
+    color: var(--ink-mid);
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 16px;
+  }
+  .q-text {
+    font-size: 17px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin-bottom: 28px;
+    flex: 1;
+  }
+
+  .options { display: flex; flex-direction: column; gap: 12px; margin-bottom: 28px; }
+  .option-btn {
+    display: flex;
+    align-items: flex-start;
+    gap: 14px;
+    background: transparent;
+    border: 1.5px solid var(--border);
+    border-radius: 4px;
+    padding: 14px 18px;
+    cursor: pointer;
+    text-align: left;
+    font-family: 'EB Garamond', serif;
+    font-size: 16px;
+    color: var(--ink);
+    transition: all 0.18s;
+    width: 100%;
+    line-height: 1.5;
+  }
+  .option-btn:hover:not([disabled]) {
+    border-color: var(--sky-dark);
+    background: var(--sky-light);
+  }
+  .option-btn.selected {
+    border-color: var(--ink-mid);
+    background: rgba(45,53,97,0.06);
+  }
+  .option-btn.correct {
+    border-color: var(--green);
+    background: rgba(26,122,74,0.08);
+    color: var(--green);
+  }
+  .option-btn.wrong {
+    border-color: var(--red);
+    background: rgba(192,57,43,0.08);
+    color: var(--red);
+  }
+  .option-letter {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 15px;
+    min-width: 22px;
+    color: var(--gold);
+    flex-shrink: 0;
+    margin-top: 1px;
+  }
+  .option-btn.correct .option-letter { color: var(--green); }
+  .option-btn.wrong .option-letter { color: var(--red); }
+
+  .q-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: auto;
+    padding-top: 20px;
+    border-top: 1px solid var(--border);
+  }
+  .q-nav { display: flex; gap: 10px; }
+  .nav-btn {
+    background: transparent;
+    border: 1.5px solid var(--border);
+    padding: 10px 22px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    color: var(--ink);
+    transition: all 0.15s;
+  }
+  .nav-btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .nav-btn:disabled { opacity: 0.35; cursor: default; }
+  .nav-btn:disabled:hover { background: transparent; color: var(--ink); border-color: var(--border); }
+  .mark-btn {
+    background: transparent;
+    border: 1.5px solid var(--gold);
+    color: var(--gold);
+    padding: 10px 18px;
+    font-family: 'EB Garamond', serif;
+    font-size: 14px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: all 0.15s;
+  }
+  .mark-btn:hover { background: var(--gold); color: #fff; }
+  .mark-btn.marked { background: var(--gold); color: #fff; }
+  .submit-btn {
+    background: var(--ink);
+    color: #fff;
+    border: none;
+    padding: 10px 28px;
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    transition: background 0.15s;
+  }
+  .submit-btn:hover { background: var(--red); }
+
+  /* ── PALETTE ── */
+  .palette-panel {
+    background: var(--paper);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 20px;
+    box-shadow: 0 2px 12px var(--shadow);
+    position: sticky;
+    top: 80px;
+  }
+  .palette-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--ink-mid);
+    margin-bottom: 14px;
+    text-align: center;
+  }
+  .palette-legend {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6px;
+    margin-bottom: 14px;
+    font-size: 11px;
+  }
+  .leg { display: flex; align-items: center; gap: 5px; }
+  .leg-dot {
+    width: 12px; height: 12px;
+    border-radius: 2px;
+    flex-shrink: 0;
+  }
+  .leg-dot.answered { background: var(--ink); }
+  .leg-dot.not-visited { background: var(--bg); border: 1px solid var(--border); }
+  .leg-dot.marked { background: var(--gold); }
+  .leg-dot.not-answered { background: var(--red); }
+
+  .palette-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 6px;
+    margin-bottom: 16px;
+  }
+  .pal-btn {
+    width: 38px; height: 38px;
+    border-radius: 3px;
+    border: 1.5px solid var(--border);
+    background: var(--bg);
+    font-family: 'Libre Baskerville', serif;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    color: var(--ink);
+    transition: all 0.12s;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .pal-btn:hover { border-color: var(--sky-dark); background: var(--sky-light); }
+  .pal-btn.current { border-color: var(--ink-mid); box-shadow: 0 0 0 2px var(--sky-dark); }
+  .pal-btn.answered { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .pal-btn.marked { background: var(--gold); color: #fff; border-color: var(--gold); }
+  .pal-btn.not-answered { background: var(--red); color: #fff; border-color: var(--red); }
+
+  .score-summary {
+    border-top: 1px solid var(--border);
+    padding-top: 14px;
+    font-size: 13px;
+  }
+  .score-row { display: flex; justify-content: space-between; padding: 3px 0; }
+  .score-row.total { font-family: 'Playfair Display', serif; font-weight: 700; font-size: 15px; border-top: 1px solid var(--border); margin-top: 4px; padding-top: 7px; }
+  .pos { color: var(--green); font-weight: 600; }
+  .neg { color: var(--red); font-weight: 600; }
+
+  /* ── RESULT ── */
+  #result { display: none; }
+  .result-wrap {
+    min-height: 100vh;
+    background: linear-gradient(160deg, #e8f4fc 0%, #f4f1eb 50%, #eae4d8 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 40px 20px;
+  }
+  .result-card {
+    background: var(--paper);
+    border: 2px solid var(--border);
+    border-radius: 4px;
+    max-width: 700px;
+    width: 100%;
+    overflow: hidden;
+    box-shadow: 0 8px 48px var(--shadow);
+  }
+  .result-header {
+    background: var(--ink);
+    color: #fff;
+    padding: 32px 40px;
+    text-align: center;
+  }
+  .result-header .rh-logo {
+    width: 70px; height: 70px;
+    border-radius: 50%;
+    background: var(--sky);
+    display: inline-flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin-bottom: 14px;
+  }
+  .result-header .rh-logo span { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--ink); }
+  .result-header h2 { font-family: 'Playfair Display', serif; font-size: 22px; margin-bottom: 4px; }
+  .result-header p { font-size: 14px; opacity: 0.75; font-style: italic; }
+  .result-body { padding: 36px 40px; }
+  .score-big {
+    text-align: center;
+    margin-bottom: 32px;
+  }
+  .score-circle {
+    width: 160px; height: 160px;
+    border-radius: 50%;
+    border: 5px solid var(--gold);
+    display: flex; flex-direction: column;
+    align-items: center; justify-content: center;
+    margin: 0 auto 16px;
+    background: #fffbf2;
+    box-shadow: 0 4px 24px rgba(184,134,11,0.2);
+  }
+  .score-circle .sc-val { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: var(--ink); line-height: 1; }
+  .score-circle .sc-max { font-size: 14px; color: var(--ink-mid); margin-top: 4px; }
+  .score-pct { font-family: 'Playfair Display', serif; font-size: 20px; color: var(--gold); }
+
+  .result-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+  }
+  .rg-box {
+    text-align: center;
+    padding: 16px 8px;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    background: #fdfaf4;
+  }
+  .rg-box .rv { font-family: 'Playfair Display', serif; font-size: 24px; font-weight: 700; }
+  .rg-box .rl { font-size: 11px; letter-spacing: 1px; text-transform: uppercase; color: var(--ink-mid); margin-top: 4px; }
+  .rg-box.corr .rv { color: var(--green); }
+  .rg-box.wrg .rv { color: var(--red); }
+  .rg-box.unt .rv { color: var(--gold); }
+
+  .rank-band {
+    text-align: center;
+    padding: 16px;
+    background: var(--sky-light);
+    border: 1px solid var(--sky-dark);
+    border-radius: 4px;
+    margin-bottom: 24px;
+    font-family: 'Playfair Display', serif;
+    font-size: 16px;
+    color: var(--ink-mid);
+  }
+
+  .result-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+  .ra-btn {
+    padding: 12px 32px;
+    border: 1.5px solid var(--border);
+    background: transparent;
+    font-family: 'Playfair Display', serif;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    cursor: pointer;
+    border-radius: 2px;
+    color: var(--ink);
+    transition: all 0.15s;
+  }
+  .ra-btn:hover { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .ra-btn.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
+  .ra-btn.primary:hover { background: var(--ink-mid); }
+
+  /* ── REVIEW MODE ── */
+  .answer-key-indicator {
+    padding: 10px 16px;
+    text-align: center;
+    background: #fffbf2;
+    border-bottom: 1px solid var(--border);
+    font-size: 13px;
+    font-style: italic;
+    color: var(--gold);
+  }
+  .explanation-box {
+    background: #f0f7ed;
+    border: 1px solid #8bc34a;
+    border-left: 4px solid var(--green);
+    border-radius: 2px;
+    padding: 14px 16px;
+    margin-top: 16px;
+    font-size: 14px;
+    line-height: 1.7;
+    color: #1a4a2a;
+    display: none;
+  }
+  .explanation-box.show { display: block; }
+
+  /* Responsive */
+  @media (max-width: 860px) {
+    .quiz-body { grid-template-columns: 1fr; padding: 16px; }
+    .q-card { margin-right: 0; margin-bottom: 20px; padding: 24px 20px; }
+    .palette-panel { position: static; }
+    .info-grid { grid-template-columns: repeat(3,1fr); }
+    .cover-card { padding: 36px 28px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ══════════ COVER ══════════ -->
+<div id="cover">
+  <div class="cover-card">
+    <div class="logo-wrap">
+      <div class="logo-placeholder">
+        <span class="sa-big">S<sub style="font-size:18px">A</sub></span>
+        <span class="sa-script">Scrutiny Academy</span>
+      </div>
+    </div>
+    <div class="org-name">Scrutiny Academy</div>
+
+    <div class="divider"><div class="divider-diamond"></div></div>
+
+    <div class="cover-title">Mock Quiz – 01</div>
+    <div class="cover-exam">UPSC Civil Services<br>Preliminary Examination</div>
+    <div class="cover-paper">General Studies Paper – I</div>
+
+    <div class="info-grid">
+      <div class="info-box"><div class="val">100</div><div class="lbl">Questions</div></div>
+      <div class="info-box"><div class="val">200</div><div class="lbl">Max Marks</div></div>
+      <div class="info-box"><div class="val">120</div><div class="lbl">Minutes</div></div>
+    </div>
+
+    <div class="instructions">
+      <h3>Instructions</h3>
+      <ul>
+        <li>Each correct answer carries <strong>+2 marks</strong>.</li>
+        <li>Each wrong answer carries <strong>−0.66 marks</strong> (negative marking).</li>
+        <li>Un-attempted questions carry <strong>zero marks</strong>.</li>
+        <li>Only one option is correct for each question.</li>
+        <li>You may mark questions for review; revisit before submitting.</li>
+        <li>Timer starts on clicking "Begin Examination". Do not refresh.</li>
+      </ul>
+    </div>
+
+    <button class="start-btn" onclick="startQuiz()">Begin Examination</button>
+  </div>
+</div>
+
+<!-- ══════════ QUIZ ══════════ -->
+<div id="quiz">
+  <div class="top-bar">
+    <div class="top-bar-left">
+      <div class="top-logo"><span>S<sub style="font-size:8px">A</sub></span></div>
+      <div>
+        <div class="top-title">Scrutiny Academy — Mock 01</div>
+        <div class="top-sub">UPSC CSE Prelims · GS Paper I</div>
+      </div>
+    </div>
+    <div class="top-right">
+      <div class="score-live" id="livescore">
+        <span>Live Score</span>
+        <strong id="live_score_val">0.00</strong>
+      </div>
+      <div class="timer-box">
+        <div class="timer-val" id="timer">02:00:00</div>
+        <div class="timer-lbl">Remaining</div>
+      </div>
+    </div>
+  </div>
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-fill" id="progress_fill" style="width:1%"></div>
+  </div>
+
+  <div class="quiz-body">
+    <!-- Question Area -->
+    <div>
+      <div class="q-card" id="qcard">
+        <div class="q-header">
+          <div>
+            <div class="q-number" id="q_num">Question 1 of 100</div>
+            <div class="q-subject" id="q_subject">History</div>
+          </div>
+          <div class="q-marks">+2 / −0.66</div>
+        </div>
+        <div class="q-text" id="q_text"></div>
+        <div class="options" id="options_wrap"></div>
+        <div class="explanation-box" id="explanation_box"></div>
+        <div class="q-footer">
+          <div class="q-nav">
+            <button class="nav-btn" id="btn_prev" onclick="navigate(-1)" disabled>← Prev</button>
+            <button class="nav-btn" id="btn_next" onclick="navigate(1)">Next →</button>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center">
+            <button class="mark-btn" id="btn_mark" onclick="toggleMark()">★ Mark for Review</button>
+            <button class="submit-btn" onclick="confirmSubmit()">Submit Test</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Palette -->
+    <div>
+      <div class="palette-panel">
+        <div class="palette-title">Question Palette</div>
+        <div class="palette-legend">
+          <div class="leg"><div class="leg-dot answered"></div> Answered</div>
+          <div class="leg"><div class="leg-dot not-visited"></div> Not visited</div>
+          <div class="leg"><div class="leg-dot marked"></div> Marked</div>
+          <div class="leg"><div class="leg-dot not-answered"></div> Not answered</div>
+        </div>
+        <div class="palette-grid" id="palette"></div>
+        <div class="score-summary">
+          <div class="score-row"><span>Attempted</span><span id="s_att">0</span></div>
+          <div class="score-row"><span>Correct</span><span class="pos" id="s_cor">0</span></div>
+          <div class="score-row"><span>Wrong</span><span class="neg" id="s_wrg">0</span></div>
+          <div class="score-row"><span>Unattempted</span><span id="s_una">100</span></div>
+          <div class="score-row total"><span>Score</span><span id="s_tot">0.00</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════ RESULT ══════════ -->
+<div id="result">
+  <div class="result-wrap">
+    <div class="result-card">
+      <div class="result-header">
+        <div class="rh-logo"><span>S<sub style="font-size:13px">A</sub></span></div>
+        <h2>Test Completed</h2>
+        <p>UPSC CSE Prelims Mock 01 — GS Paper I</p>
+      </div>
+      <div class="result-body">
+        <div class="score-big">
+          <div class="score-circle">
+            <div class="sc-val" id="r_score">0.00</div>
+            <div class="sc-max">out of 200</div>
+          </div>
+          <div class="score-pct" id="r_pct">0.00%</div>
+        </div>
+        <div class="result-grid">
+          <div class="rg-box corr"><div class="rv" id="r_cor">0</div><div class="rl">Correct</div></div>
+          <div class="rg-box wrg"><div class="rv" id="r_wrg">0</div><div class="rl">Wrong</div></div>
+          <div class="rg-box unt"><div class="rv" id="r_unt">0</div><div class="rl">Unattempted</div></div>
+        </div>
+        <div class="rank-band" id="r_band">Calculating your performance band...</div>
+        <div class="result-actions">
+          <button class="ra-btn primary" onclick="reviewAnswers()">📋 Review Answers</button>
+          <button class="ra-btn" onclick="location.reload()">🔄 Retake Test</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ══════════════════════════════════════════
+// UPSC GS Paper 1 — 100 Exam-Level MCQs
+// ══════════════════════════════════════════
+const questions = [
+  // ── HISTORY (20 Qs) ──
+  {
+    subject: "History",
+    q: "The 'Doctrine of Lapse' was a policy implemented by which Governor-General of British India that led to the annexation of several princely states?",
+    opts: ["Lord Wellesley","Lord Dalhousie","Lord Cornwallis","Lord Hastings"],
+    ans: 1,
+    exp: "Lord Dalhousie (1848–1856) applied the Doctrine of Lapse, annexing states like Satara, Jhansi, Nagpur, and Awadh."
+  },
+  {
+    subject: "History",
+    q: "The Permanent Settlement of 1793 was introduced by Lord Cornwallis primarily in which region of India?",
+    opts: ["Bombay Presidency","Punjab","Bengal","Madras"],
+    ans: 2,
+    exp: "The Permanent Settlement fixed land revenue in Bengal (including Bihar and Odisha) and created a class of zamindars with hereditary rights."
+  },
+  {
+    subject: "History",
+    q: "Who among the following presided over the Lahore Session of the Indian National Congress (1929) that passed the 'Purna Swaraj' resolution?",
+    opts: ["Bal Gangadhar Tilak","Jawaharlal Nehru","Subhas Chandra Bose","Madan Mohan Malaviya"],
+    ans: 1,
+    exp: "Jawaharlal Nehru presided over the 1929 Lahore session of INC where the declaration of complete independence (Purna Swaraj) was adopted on 31 December 1929."
+  },
+  {
+    subject: "History",
+    q: "The 'August Offer' of 1940 was proposed by which Viceroy of India, promising dominion status after World War II?",
+    opts: ["Lord Irwin","Lord Linlithgow","Lord Wavell","Lord Mountbatten"],
+    ans: 1,
+    exp: "Lord Linlithgow (Viceroy 1936–43) announced the August Offer in 1940, promising dominion status but only after the war, which was rejected by the Congress."
+  },
+  {
+    subject: "History",
+    q: "Which of the following princely states did NOT accede to India immediately before or after Independence (August–October 1947)?",
+    opts: ["Jodhpur","Jaisalmer","Hyderabad","Bikaner"],
+    ans: 2,
+    exp: "Hyderabad did not accede voluntarily; it was integrated through 'Police Action' (Operation Polo) in September 1948 under Sardar Patel."
+  },
+  {
+    subject: "History",
+    q: "The Battle of Plassey (1757) was significant primarily because it:",
+    opts: ["Ended French power in India permanently","Established British paramountcy in Bengal","Led to the annexation of Punjab","Overthrew the Maratha Confederacy"],
+    ans: 1,
+    exp: "The Battle of Plassey gave the British East India Company control over Bengal, marking the beginning of British political power in India."
+  },
+  {
+    subject: "History",
+    q: "The Vernacular Press Act of 1878, introduced by Lord Lytton, was aimed primarily at silencing:",
+    opts: ["English-language newspapers","Indian-language newspapers","Foreign missionaries","Anglo-Indian papers"],
+    ans: 1,
+    exp: "The Vernacular Press Act targeted Indian-language (vernacular) newspapers that were criticising British policies, notably papers like Amrita Bazar Patrika circumvented it by switching to English."
+  },
+  {
+    subject: "History",
+    q: "Which Indian revolutionary was known by the alias 'Netaji' and headed the Indian National Army (INA) during World War II?",
+    opts: ["Bhagat Singh","Bal Gangadhar Tilak","Subhas Chandra Bose","Surya Sen"],
+    ans: 2,
+    exp: "Subhas Chandra Bose was called Netaji and reorganised the INA (Azad Hind Fauj) in Southeast Asia during WWII to fight the British."
+  },
+  {
+    subject: "History",
+    q: "The Champaran Satyagraha of 1917 was related to which of the following issues?",
+    opts: ["Salt tax","Indigo cultivation","Untouchability","Mill workers' rights"],
+    ans: 1,
+    exp: "The Champaran Satyagraha was Gandhi's first civil disobedience in India against the forced cultivation of indigo under the tinkathia system."
+  },
+  {
+    subject: "History",
+    q: "Which of the following sets of events is in the CORRECT chronological order?",
+    opts: [
+      "Partition of Bengal → Surat Split → Non-Cooperation Movement",
+      "Surat Split → Partition of Bengal → Non-Cooperation Movement",
+      "Non-Cooperation Movement → Partition of Bengal → Surat Split",
+      "Partition of Bengal → Non-Cooperation Movement → Surat Split"
+    ],
+    ans: 0,
+    exp: "Partition of Bengal (1905) → Surat Split of Congress (1907) → Non-Cooperation Movement (1920–22). Option A is correct."
+  },
+  {
+    subject: "History",
+    q: "Who founded the Theosophical Society in India and also supported the Home Rule League?",
+    opts: ["Annie Besant","Madam Cama","Sarojini Naidu","Sister Nivedita"],
+    ans: 0,
+    exp: "Annie Besant founded the Indian Home Rule League in 1916 and became president of INC in 1917. She also headed the Theosophical Society."
+  },
+  {
+    subject: "History",
+    q: "The Simon Commission of 1927 was boycotted by Indians mainly because:",
+    opts: ["It favoured partition of India","It proposed diarchy in provinces","It had no Indian member","It abolished provincial councils"],
+    ans: 2,
+    exp: "The seven-member Simon Commission had no Indian members, which was seen as an insult to Indian aspirations for self-governance."
+  },
+  {
+    subject: "History",
+    q: "The Jallianwala Bagh massacre (April 1919) occurred during which of the following?\n1. Rowlatt Act agitation\n2. Khilafat Movement\nSelect the correct answer:",
+    opts: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+    ans: 0,
+    exp: "The massacre occurred on 13 April 1919 during Baisakhi and the Rowlatt Act protest. The Khilafat Movement formally began later in 1919–1920."
+  },
+  {
+    subject: "History",
+    q: "Which Mughal Emperor built the Taj Mahal?",
+    opts: ["Akbar","Humayun","Shah Jahan","Aurangzeb"],
+    ans: 2,
+    exp: "Shah Jahan commissioned the Taj Mahal in Agra (completed c.1653) as a mausoleum for his wife Mumtaz Mahal."
+  },
+  {
+    subject: "History",
+    q: "The Ryotwari Settlement, which fixed revenue directly with the peasant (ryot), was introduced in which presidency?",
+    opts: ["Bengal Presidency","Madras Presidency","Punjab","Awadh"],
+    ans: 1,
+    exp: "The Ryotwari system was introduced in Madras (and Bombay) Presidency by Thomas Munro and Alexander Read in the early 19th century."
+  },
+  {
+    subject: "History",
+    q: "Who was the founder of the Brahmo Samaj?",
+    opts: ["Swami Vivekananda","Ram Mohan Roy","Dayananda Saraswati","Keshab Chandra Sen"],
+    ans: 1,
+    exp: "Raja Ram Mohan Roy founded the Brahmo Sabha in 1828 (later known as Brahmo Samaj), a socio-religious reform movement."
+  },
+  {
+    subject: "History",
+    q: "The 'Poona Pact' (1932) was signed between Mahatma Gandhi and:",
+    opts: ["Muhammad Ali Jinnah","B.R. Ambedkar","Jawaharlal Nehru","Vallabhbhai Patel"],
+    ans: 1,
+    exp: "The Poona Pact was signed between Gandhi and B.R. Ambedkar, reserving legislative seats for Depressed Classes within a joint Hindu electorate instead of separate electorates."
+  },
+  {
+    subject: "History",
+    q: "The Santhal Rebellion of 1855–56 was primarily directed against:",
+    opts: ["The Portuguese colonisers","British land revenue policy and moneylenders","The Mughal Empire","Maratha tax collectors"],
+    ans: 1,
+    exp: "The Santhal Rebellion (Hul) was led by Sidhu and Kanhu against the dikus (outsiders)—zamindars, moneylenders, and colonial land policies."
+  },
+  {
+    subject: "History",
+    q: "The 'Subsidiary Alliance' system, introduced by Lord Wellesley, required Indian rulers to:",
+    opts: ["Pay tribute to the Mughal Emperor","Maintain a British force at their own expense","Abolish traditional armies","Accept direct British administration"],
+    ans: 1,
+    exp: "Under Subsidiary Alliance, Indian states had to maintain a British subsidiary force, pay for it, and accept a British Resident, surrendering control of foreign policy."
+  },
+  {
+    subject: "History",
+    q: "Which leader is associated with the slogan 'Jai Hind' and the establishment of the Azad Hind Government?",
+    opts: ["Lal Bal Pal trio","Subhas Chandra Bose","Bhagat Singh","Udham Singh"],
+    ans: 1,
+    exp: "Subhas Chandra Bose proclaimed the Provisional Government of Free India (Azad Hind) in Singapore in 1943 and used the salutation 'Jai Hind'."
+  },
+
+  // ── GEOGRAPHY (20 Qs) ──
+  {
+    subject: "Geography",
+    q: "Which of the following Himalayan rivers is antecedent in origin, meaning it existed before the Himalayas were formed?",
+    opts: ["Ganga","Yamuna","Indus","Chambal"],
+    ans: 2,
+    exp: "The Indus, Brahmaputra, and Sutlej are antecedent rivers—they pre-date the Himalayan uplift and cut gorges through the mountains."
+  },
+  {
+    subject: "Geography",
+    q: "The 'Western Disturbances' that bring winter rainfall to north-western India originate from which region?",
+    opts: ["Bay of Bengal","Arabian Sea","Mediterranean Sea","South China Sea"],
+    ans: 2,
+    exp: "Western Disturbances are extra-tropical cyclones originating in the Mediterranean Sea and passing over Iran, Afghanistan before reaching north-western India."
+  },
+  {
+    subject: "Geography",
+    q: "The Loktak Lake, the largest freshwater lake in North-East India, is located in which state?",
+    opts: ["Assam","Meghalaya","Manipur","Nagaland"],
+    ans: 2,
+    exp: "Loktak Lake is in Manipur. It is famous for its phumdis (floating biomass) and the Keibul Lamjao National Park."
+  },
+  {
+    subject: "Geography",
+    q: "Which of the following is NOT a biosphere reserve recognised under the UNESCO 'Man and Biosphere' (MAB) Programme in India?",
+    opts: ["Nilgiri","Sundarbans","Jim Corbett","Gulf of Mannar"],
+    ans: 2,
+    exp: "Jim Corbett National Park is not a UNESCO MAB Biosphere Reserve. Nilgiri, Sundarbans, and Gulf of Mannar are UNESCO-recognised biosphere reserves."
+  },
+  {
+    subject: "Geography",
+    q: "The Tropic of Cancer passes through which of the following sets of Indian states?",
+    opts: [
+      "Gujarat, Rajasthan, Uttar Pradesh, Bihar",
+      "Gujarat, Madhya Pradesh, Chhattisgarh, Jharkhand",
+      "Rajasthan, Haryana, Uttar Pradesh, West Bengal",
+      "Maharashtra, Telangana, Odisha, West Bengal"
+    ],
+    ans: 1,
+    exp: "The Tropic of Cancer (23.5°N) passes through Gujarat, Rajasthan, Madhya Pradesh, Chhattisgarh, Jharkhand, West Bengal, Tripura, and Mizoram."
+  },
+  {
+    subject: "Geography",
+    q: "The 'Coral Triangle', considered the global centre of marine biodiversity, spans which ocean?",
+    opts: ["Indian Ocean","Atlantic Ocean","Pacific Ocean","Arctic Ocean"],
+    ans: 2,
+    exp: "The Coral Triangle spans the Indo-Pacific region—primarily Indonesia, Malaysia, Philippines, Papua New Guinea, Solomon Islands, and Timor-Leste—in the Pacific Ocean."
+  },
+  {
+    subject: "Geography",
+    q: "The Chipko Movement of the 1970s was primarily associated with which type of environmental issue?",
+    opts: ["River pollution","Deforestation","Mining","Wildlife poaching"],
+    ans: 1,
+    exp: "The Chipko Movement (1973, Uttarakhand) was a forest conservation effort where villagers (especially women) hugged trees to prevent commercial logging."
+  },
+  {
+    subject: "Geography",
+    q: "Which Indian state has the largest area under mangrove forests?",
+    opts: ["Kerala","Odisha","West Bengal","Andhra Pradesh"],
+    ans: 2,
+    exp: "West Bengal has the largest mangrove cover in India due to the Sundarbans, the world's largest mangrove delta."
+  },
+  {
+    subject: "Geography",
+    q: "The 'El Niño' phenomenon is characterised by which of the following?",
+    opts: [
+      "Abnormal warming of sea surface temperatures in the eastern Pacific",
+      "Abnormal cooling of sea surface temperatures in the eastern Pacific",
+      "Strengthening of trade winds over the Pacific",
+      "Excessive rainfall over the Indian subcontinent"
+    ],
+    ans: 0,
+    exp: "El Niño is the warming phase of the ENSO cycle, with above-normal sea surface temperatures in the central and eastern equatorial Pacific, often causing weak monsoons in India."
+  },
+  {
+    subject: "Geography",
+    q: "The international boundary between India and Pakistan in Jammu & Kashmir (until 2019) was known as the:",
+    opts: ["McMahon Line","Durand Line","Radcliffe Line","Line of Control"],
+    ans: 3,
+    exp: "The Line of Control (LoC) is the military control line between India and Pakistan in Jammu & Kashmir, established after the 1972 Simla Agreement."
+  },
+  {
+    subject: "Geography",
+    q: "Which of the following statements about the Deccan Plateau is correct?\n1. It is bounded by the Eastern and Western Ghats.\n2. It is composed primarily of alluvial soil.\nSelect the correct answer:",
+    opts: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+    ans: 0,
+    exp: "The Deccan Plateau is bounded by the Eastern Ghats (E), Western Ghats (W), and Vindhya-Satpura ranges (N). It is composed of ancient hard rocks (Deccan Traps/basalt), not alluvial soil."
+  },
+  {
+    subject: "Geography",
+    q: "The Brahmaputra River is known as 'Tsangpo' in which country before entering India?",
+    opts: ["Nepal","Bhutan","Myanmar","China"],
+    ans: 3,
+    exp: "The Brahmaputra originates in Tibet (China) as the Tsangpo River, enters India through Arunachal Pradesh, and is known as Dihang before becoming the Brahmaputra in Assam."
+  },
+  {
+    subject: "Geography",
+    q: "The 'Roaring Forties' are:",
+    opts: [
+      "Strong westerly winds found between 40°–50° South latitudes",
+      "Trade winds in the equatorial belt",
+      "Monsoon winds over the Indian Ocean",
+      "Polar easterlies above 60° South"
+    ],
+    ans: 0,
+    exp: "The Roaring Forties are powerful westerly winds found in the Southern Hemisphere between 40° and 50° South latitude."
+  },
+  {
+    subject: "Geography",
+    q: "Which of the following is the highest peak in the Aravalli Range?",
+    opts: ["Abu Peak","Guru Shikhar","Taragarh","Achalgarh"],
+    ans: 1,
+    exp: "Guru Shikhar (1,722 m) on Mount Abu in Rajasthan is the highest peak in the Aravalli Range."
+  },
+  {
+    subject: "Geography",
+    q: "Which of the following rivers does NOT flow into the Bay of Bengal?",
+    opts: ["Mahanadi","Godavari","Tapti","Krishna"],
+    ans: 2,
+    exp: "Tapti (Tapi) is a west-flowing river that drains into the Arabian Sea (Gulf of Khambhat), not the Bay of Bengal."
+  },
+  {
+    subject: "Geography",
+    q: "The 'Doon Valley' is located between which two mountain ranges?",
+    opts: [
+      "Siwalik Hills and Great Himalayas",
+      "Lesser Himalayas and Great Himalayas",
+      "Siwalik Hills and Lesser Himalayas",
+      "Vindhya and Aravalli ranges"
+    ],
+    ans: 2,
+    exp: "The Doon Valley (Dehradun) is a longitudinal valley (dun) situated between the Siwalik Hills (outer Himalayas) and the Lesser Himalayas."
+  },
+  {
+    subject: "Geography",
+    q: "Which soil type in India is most suitable for cotton cultivation and is also known as 'regur'?",
+    opts: ["Alluvial soil","Red and yellow soil","Black cotton soil","Laterite soil"],
+    ans: 2,
+    exp: "Black cotton soil (regur) is formed by weathering of Deccan trap lava. It has high moisture retention and is ideal for cotton cultivation."
+  },
+  {
+    subject: "Geography",
+    q: "The 'International Date Line' roughly follows which line of longitude?",
+    opts: ["0° (Prime Meridian)","90°E","135°W","180°"],
+    ans: 3,
+    exp: "The International Date Line runs approximately along the 180° meridian in the Pacific Ocean, with deviations to avoid land masses."
+  },
+  {
+    subject: "Geography",
+    q: "Sunderban's mangroves are located in the delta of which pair of rivers?",
+    opts: ["Ganga–Brahmaputra","Mahanadi–Godavari","Krishna–Cauvery","Indus–Jhelum"],
+    ans: 0,
+    exp: "The Sundarbans delta is formed by the Ganga–Brahmaputra–Meghna river system in West Bengal (India) and Bangladesh."
+  },
+  {
+    subject: "Geography",
+    q: "The phenomenon 'Kal Baisakhi' (Nor'wester) is associated with which region?",
+    opts: ["Rajasthan","North-East India and West Bengal","Tamil Nadu","Uttarakhand"],
+    ans: 1,
+    exp: "Kal Baisakhi are violent pre-monsoon thunderstorms occurring in the evening/night over West Bengal and northeastern India, important for jute and rice cultivation."
+  },
+
+  // ── POLITY (15 Qs) ──
+  {
+    subject: "Polity",
+    q: "Which Article of the Indian Constitution deals with the 'Right to Constitutional Remedies', described by Dr. Ambedkar as the 'heart and soul of the Constitution'?",
+    opts: ["Article 19","Article 21","Article 32","Article 44"],
+    ans: 2,
+    exp: "Article 32 grants the right to move the Supreme Court for enforcement of Fundamental Rights. Dr. Ambedkar called it the 'heart and soul of the Constitution'."
+  },
+  {
+    subject: "Polity",
+    q: "The concept of 'Judicial Review' in India is borrowed from the constitutional framework of which country?",
+    opts: ["United Kingdom","United States of America","Canada","Australia"],
+    ans: 1,
+    exp: "The concept of Judicial Review is borrowed from the USA, where it was established by the Supreme Court in Marbury v. Madison (1803)."
+  },
+  {
+    subject: "Polity",
+    q: "The 42nd Constitutional Amendment Act (1976) is sometimes called the 'Mini Constitution' because it:\n1. Added Fundamental Duties (Part IVA)\n2. Added the words 'Socialist', 'Secular', and 'Integrity' to the Preamble\n3. Shifted several subjects from State to Concurrent List\nWhich of the above is/are correct?",
+    opts: ["1 and 2 only","2 and 3 only","1 and 3 only","1, 2 and 3"],
+    ans: 3,
+    exp: "The 42nd Amendment (during Emergency, 1976) made sweeping changes: altered the Preamble, added Fundamental Duties (Article 51A), added 5 subjects to Concurrent List, curtailed judicial review, etc."
+  },
+  {
+    subject: "Polity",
+    q: "Under which schedule of the Indian Constitution are anti-defection provisions contained?",
+    opts: ["Fifth Schedule","Eighth Schedule","Ninth Schedule","Tenth Schedule"],
+    ans: 3,
+    exp: "The Tenth Schedule (added by the 52nd Amendment, 1985) contains the anti-defection provisions."
+  },
+  {
+    subject: "Polity",
+    q: "Which of the following is a feature of the Indian federal system NOT shared with the US federal system?",
+    opts: [
+      "Dual citizenship",
+      "Single citizenship",
+      "Independent judiciary",
+      "Written Constitution"
+    ],
+    ans: 1,
+    exp: "India has single citizenship (only Indian citizenship), unlike the USA where citizens have both state and federal citizenship."
+  },
+  {
+    subject: "Polity",
+    q: "A Money Bill in India can be introduced only in:",
+    opts: ["Rajya Sabha","Lok Sabha","Either House","A Joint Sitting"],
+    ans: 1,
+    exp: "Under Article 110 and Article 109, a Money Bill can only be introduced in the Lok Sabha. Rajya Sabha can only recommend, not amend or reject."
+  },
+  {
+    subject: "Polity",
+    q: "The 'Doctrine of Basic Structure' was propounded by the Supreme Court of India in which landmark case?",
+    opts: ["Golaknath v. State of Punjab (1967)","Kesavananda Bharati v. State of Kerala (1973)","Maneka Gandhi v. Union of India (1978)","Minerva Mills v. Union of India (1980)"],
+    ans: 1,
+    exp: "In Kesavananda Bharati v. State of Kerala (1973), the 13-judge Supreme Court bench ruled that Parliament cannot amend the 'basic structure' of the Constitution."
+  },
+  {
+    subject: "Polity",
+    q: "The Panchayati Raj institutions were given constitutional status by which Constitutional Amendment?",
+    opts: ["70th Amendment","73rd Amendment","74th Amendment","76th Amendment"],
+    ans: 1,
+    exp: "The 73rd Constitutional Amendment Act (1992) gave constitutional status to Panchayati Raj institutions and added Part IX (Articles 243–243O)."
+  },
+  {
+    subject: "Polity",
+    q: "The Comptroller and Auditor General of India (CAG) submits its audit reports to:",
+    opts: ["The President only","The Parliament directly","The President, who causes them to be laid before Parliament","The Finance Minister"],
+    ans: 2,
+    exp: "Under Article 151, the CAG submits reports to the President (for Union) and Governors (for States), who cause them to be laid before the respective legislatures."
+  },
+  {
+    subject: "Polity",
+    q: "Under the Indian Constitution, 'freedom of press' is implied under which Fundamental Right?",
+    opts: ["Article 19(1)(a)","Article 19(1)(b)","Article 19(1)(c)","Article 21"],
+    ans: 0,
+    exp: "Freedom of press is implied in Article 19(1)(a) — freedom of speech and expression. There is no separate provision for press freedom."
+  },
+  {
+    subject: "Polity",
+    q: "Which of the following Directives under DPSP is considered a 'Gandhian Principle'?\n1. Promotion of cottage industries\n2. Organisation of village panchayats\n3. Provision for free and compulsory education\nSelect the correct answer:",
+    opts: ["1 and 2 only","2 and 3 only","1 and 3 only","1, 2 and 3"],
+    ans: 0,
+    exp: "Gandhian principles in DPSP include: village panchayats, cottage industries, prohibition of intoxicants, cow protection, etc. Free education (Article 45) is socio-economic in nature."
+  },
+  {
+    subject: "Polity",
+    q: "The Parliament of India can legislate on subjects in the State List under which exceptional circumstances?\n1. National Emergency\n2. Resolution by the concerned State Legislature\n3. Rajya Sabha passes a resolution by two-thirds majority\nSelect the correct answer:",
+    opts: ["1 only","1 and 3 only","2 and 3 only","1, 2 and 3"],
+    ans: 3,
+    exp: "Parliament can legislate on State List subjects in five situations: national emergency (Article 352), request by State Legislature (Article 252), Rajya Sabha resolution (Article 249), during President's Rule, and international treaties."
+  },
+  {
+    subject: "Polity",
+    q: "The concept of 'Integrated audit' in India relates to the functions of:",
+    opts: ["NITI Aayog","Comptroller & Auditor General","Finance Commission","Reserve Bank of India"],
+    ans: 1,
+    exp: "Integrated audit is a function of the CAG, combining both financial (compliance) and performance audits to assess value for money in government expenditure."
+  },
+  {
+    subject: "Polity",
+    q: "National Judicial Appointments Commission (NJAC) was struck down by the Supreme Court in 2015 because it violated the:",
+    opts: [
+      "Doctrine of Separation of Powers",
+      "Basic Structure doctrine — specifically judicial independence",
+      "Federal character of the Constitution",
+      "Fundamental Rights under Article 14"
+    ],
+    ans: 1,
+    exp: "The Supreme Court (2015) struck down the 99th Amendment and NJAC Act as unconstitutional, holding that judicial independence (a basic structure element) would be compromised."
+  },
+  {
+    subject: "Polity",
+    q: "Which of the following constitutional bodies is NOT explicitly mentioned in the Indian Constitution?",
+    opts: ["Election Commission","Finance Commission","UPSC","National Development Council"],
+    ans: 3,
+    exp: "The National Development Council (NDC) has no constitutional basis; it was created by a Government of India resolution in 1952. (Note: NITI Aayog replaced the Planning Commission.)"
+  },
+
+  // ── ECONOMY (15 Qs) ──
+  {
+    subject: "Economy",
+    q: "The concept of 'Twin Balance Sheet Problem' in India refers to stress in:",
+    opts: [
+      "Government and private sector balance sheets",
+      "Bank balance sheets and corporate balance sheets",
+      "Current account and capital account",
+      "Public sector and external debt"
+    ],
+    ans: 1,
+    exp: "The Twin Balance Sheet problem refers to over-leveraged corporate balance sheets and stressed bank balance sheets (NPAs), highlighted by the Economic Survey."
+  },
+  {
+    subject: "Economy",
+    q: "The Goods and Services Tax (GST) in India is based on the model of which country?",
+    opts: ["USA","Canada","Australia","United Kingdom"],
+    ans: 1,
+    exp: "India's dual GST model (CGST + SGST) is primarily based on Canada's federal–provincial dual GST structure."
+  },
+  {
+    subject: "Economy",
+    q: "Which of the following correctly defines 'Repo Rate'?",
+    opts: [
+      "Rate at which RBI lends short-term to commercial banks against securities",
+      "Rate at which commercial banks lend to each other overnight",
+      "Rate at which RBI borrows from commercial banks",
+      "Minimum rate at which banks lend to their most creditworthy customers"
+    ],
+    ans: 0,
+    exp: "Repo Rate is the rate at which the RBI lends money to commercial banks for short-term (overnight/short-term) against government securities."
+  },
+  {
+    subject: "Economy",
+    q: "The 'Human Development Index' (HDI) is published by which organisation?",
+    opts: ["World Bank","IMF","UNDP","WHO"],
+    ans: 2,
+    exp: "The HDI is published annually by the United Nations Development Programme (UNDP) in the Human Development Report."
+  },
+  {
+    subject: "Economy",
+    q: "Under the Insolvency and Bankruptcy Code (IBC) 2016, which body is the adjudicating authority for corporate insolvency?",
+    opts: ["Supreme Court","High Court","National Company Law Tribunal (NCLT)","Debt Recovery Tribunal"],
+    ans: 2,
+    exp: "The NCLT is the adjudicating authority for corporate persons under the IBC 2016. DRT handles individual insolvency cases."
+  },
+  {
+    subject: "Economy",
+    q: "The 'Marginal Standing Facility' (MSF) rate is generally:",
+    opts: [
+      "100 basis points above the Repo Rate",
+      "100 basis points below the Repo Rate",
+      "Equal to the Repo Rate",
+      "50 basis points above the Bank Rate"
+    ],
+    ans: 0,
+    exp: "MSF rate is 25 basis points above the repo rate (policy corridor). Banks can borrow overnight under MSF by dipping into SLR securities up to a certain limit."
+  },
+  {
+    subject: "Economy",
+    q: "Which of the following is NOT a function of the National Bank for Agriculture and Rural Development (NABARD)?",
+    opts: [
+      "Refinancing rural credit institutions",
+      "Inspecting cooperative banks",
+      "Fixing Minimum Support Prices for crops",
+      "Promoting rural infrastructure development"
+    ],
+    ans: 2,
+    exp: "MSP for crops is fixed by the Cabinet Committee on Economic Affairs (CCEA) based on recommendations of the Commission for Agricultural Costs and Prices (CACP), not NABARD."
+  },
+  {
+    subject: "Economy",
+    q: "The term 'Fiscal Consolidation' refers to:",
+    opts: [
+      "Reducing fiscal deficit through expenditure cuts and revenue increases",
+      "Merging of public sector banks",
+      "Combining CGST and SGST into a unified rate",
+      "Disinvestment of government assets"
+    ],
+    ans: 0,
+    exp: "Fiscal consolidation is the process of reducing fiscal deficit (and debt) through measures like expenditure compression, subsidy rationalisation, and increased revenue mobilisation."
+  },
+  {
+    subject: "Economy",
+    q: "The 'Pradhan Mantri Jan Dhan Yojana' (PMJDY) was launched primarily to achieve:",
+    opts: [
+      "Universal health coverage",
+      "Financial inclusion by providing basic banking services",
+      "Agricultural credit to small farmers",
+      "Direct cash transfer to BPL families"
+    ],
+    ans: 1,
+    exp: "PMJDY (launched 2014) aims at financial inclusion—ensuring access to bank accounts, credit, insurance, and pension to every Indian household."
+  },
+  {
+    subject: "Economy",
+    q: "Which of the following is the CORRECT definition of 'Current Account Deficit' (CAD)?",
+    opts: [
+      "Excess of imports of goods over exports of goods",
+      "Excess of total imports of goods and services plus net income and transfers over exports",
+      "Excess of government expenditure over revenue",
+      "Excess of foreign investment outflow over inflow"
+    ],
+    ans: 1,
+    exp: "CAD = Trade deficit (goods & services) + Net income deficit + Net current transfers deficit. It is broader than just the merchandise trade deficit."
+  },
+  {
+    subject: "Economy",
+    q: "The 'Engel's Law' in economics states that as income rises:",
+    opts: [
+      "The proportion spent on food decreases",
+      "Total food expenditure decreases",
+      "The proportion spent on luxury goods decreases",
+      "Savings automatically increase"
+    ],
+    ans: 0,
+    exp: "Engel's Law: as household income increases, the proportion (not absolute amount) spent on food decreases, even though total food expenditure may rise."
+  },
+  {
+    subject: "Economy",
+    q: "The 'CAMELS' rating system used in banking supervision evaluates banks on how many parameters?",
+    opts: ["4","5","6","8"],
+    ans: 2,
+    exp: "CAMELS stands for Capital adequacy, Asset quality, Management, Earnings, Liquidity, and Sensitivity to market risk—6 parameters."
+  },
+  {
+    subject: "Economy",
+    q: "Which body fixes the benchmark lending rate in India for banks?",
+    opts: ["Finance Ministry","RBI Monetary Policy Committee","Indian Banks' Association","SEBI"],
+    ans: 1,
+    exp: "The Monetary Policy Committee (MPC) of the RBI decides the policy repo rate, which anchors short-term interest rates and benchmark lending rates."
+  },
+  {
+    subject: "Economy",
+    q: "Under which economic concept would 'demonetisation' primarily be classified as a tool?",
+    opts: ["Fiscal Policy","Monetary Policy","Trade Policy","Industrial Policy"],
+    ans: 1,
+    exp: "Demonetisation involves withdrawing currency notes from circulation, which relates to money supply management—a core monetary policy tool of the central bank."
+  },
+  {
+    subject: "Economy",
+    q: "The 'Laffer Curve' illustrates the relationship between:",
+    opts: [
+      "Tax rates and government tax revenue",
+      "Inflation and unemployment (Phillips Curve)",
+      "Savings and investment",
+      "Exchange rate and trade balance"
+    ],
+    ans: 0,
+    exp: "The Laffer Curve shows that there is an optimal tax rate beyond which increasing the rate actually reduces total tax revenue, forming an inverted-U shape."
+  },
+
+  // ── ENVIRONMENT & ECOLOGY (10 Qs) ──
+  {
+    subject: "Environment",
+    q: "The 'Biological Diversity Act, 2002' established which of the following at the national level?",
+    opts: [
+      "National Green Tribunal",
+      "National Biodiversity Authority",
+      "Central Pollution Control Board",
+      "Wildlife Crime Control Bureau"
+    ],
+    ans: 1,
+    exp: "The Biological Diversity Act, 2002 established the National Biodiversity Authority (NBA) at the national level, State Biodiversity Boards, and Biodiversity Management Committees at local level."
+  },
+  {
+    subject: "Environment",
+    q: "The 'Kunming-Montreal Global Biodiversity Framework' (2022) is the successor to which earlier framework?",
+    opts: ["Rio Convention targets","Nagoya Protocol","Aichi Biodiversity Targets","Cartagena Protocol"],
+    ans: 2,
+    exp: "The Kunming-Montreal GBF (COP15, 2022) replaced the Aichi Biodiversity Targets (2010–2020) with new targets including '30×30' (protecting 30% of land and oceans by 2030)."
+  },
+  {
+    subject: "Environment",
+    q: "The 'Ramsar Convention' is related to the conservation of:",
+    opts: ["Coral reefs","Wetlands","Migratory birds","Endangered species"],
+    ans: 1,
+    exp: "The Ramsar Convention (1971) is an international treaty for the conservation and sustainable use of wetlands."
+  },
+  {
+    subject: "Environment",
+    q: "Which of the following greenhouse gases has the highest Global Warming Potential (GWP) over a 100-year period?",
+    opts: ["Carbon dioxide (CO₂)","Methane (CH₄)","Nitrous oxide (N₂O)","Sulphur hexafluoride (SF₆)"],
+    ans: 3,
+    exp: "Sulphur hexafluoride (SF₆) has a GWP of ~23,500 over 100 years, the highest among common greenhouse gases. CO₂ = 1, CH₄ ≈ 28, N₂O ≈ 265."
+  },
+  {
+    subject: "Environment",
+    q: "The 'Blue Carbon' concept refers to carbon stored in:",
+    opts: [
+      "Deep ocean sediments",
+      "Coastal and marine ecosystems like mangroves, seagrasses, and salt marshes",
+      "Permafrost regions",
+      "Freshwater lakes and rivers"
+    ],
+    ans: 1,
+    exp: "Blue Carbon refers to carbon sequestered by marine and coastal ecosystems—especially mangroves, tidal marshes, and seagrass meadows—at high rates per unit area."
+  },
+  {
+    subject: "Environment",
+    q: "The 'National Action Plan on Climate Change (NAPCC)' of India identifies how many National Missions?",
+    opts: ["6","8","10","12"],
+    ans: 1,
+    exp: "NAPCC (2008) has 8 National Missions including Solar Mission, Enhanced Energy Efficiency, Sustainable Habitat, Water Mission, Himalayan Ecosystem, Green India, Sustainable Agriculture, and Strategic Knowledge for Climate Change."
+  },
+  {
+    subject: "Environment",
+    q: "Which of the following is an indicator used to measure a country's 'ecological footprint'?",
+    opts: [
+      "Area of biologically productive land and sea required to sustain the population",
+      "Total carbon emissions per capita",
+      "Index of forest cover change",
+      "Proportion of GDP from agriculture"
+    ],
+    ans: 0,
+    exp: "Ecological footprint measures the total biologically productive area (land and water) required to produce the resources consumed and absorb the waste generated by a population."
+  },
+  {
+    subject: "Environment",
+    q: "The 'Biosphere Reserve' concept recognises three zones. Which of the following is the CORRECT set?",
+    opts: [
+      "Core zone, Buffer zone, Transition zone",
+      "Core zone, Fringe zone, Buffer zone",
+      "Wildlife zone, Buffer zone, Human settlement zone",
+      "Protected zone, Research zone, Community zone"
+    ],
+    ans: 0,
+    exp: "UNESCO MAB Biosphere Reserves have three zones: Core zone (strictly protected), Buffer zone (limited research/education), and Transition/Cooperation zone (sustainable human activities)."
+  },
+  {
+    subject: "Environment",
+    q: "India ratified the Paris Agreement in 2016. India's Nationally Determined Contribution (NDC) target includes which of the following?\n1. Reducing emissions intensity of GDP by 45% by 2030 from 2005 levels.\n2. Achieving 50% of cumulative electric power from non-fossil sources by 2030.\nSelect the correct answer:",
+    opts: ["1 only","2 only","Both 1 and 2","Neither 1 nor 2"],
+    ans: 2,
+    exp: "India's updated NDC (2022) targets: reduce emissions intensity of GDP by 45% from 2005 levels by 2030, and achieve 50% cumulative electric power from non-fossil fuel sources by 2030."
+  },
+  {
+    subject: "Environment",
+    q: "The 'Snow Leopard' is found in India primarily in which ecosystem?",
+    opts: [
+      "Mangrove forests of Sundarbans",
+      "High-altitude Himalayan regions (3,000–4,500 m)",
+      "Deciduous forests of Central India",
+      "Shola grasslands of Western Ghats"
+    ],
+    ans: 1,
+    exp: "Snow Leopards inhabit the high-altitude alpine and sub-alpine zones (3,000–4,500 m) of the Himalayas—in Jammu & Kashmir, Himachal Pradesh, Uttarakhand, Sikkim, and Arunachal Pradesh."
+  },
+
+  // ── SCIENCE & TECHNOLOGY (10 Qs) ──
+  {
+    subject: "Science & Technology",
+    q: "Which of the following correctly describes 'mRNA vaccines' (like Pfizer-BioNTech COVID-19 vaccine)?",
+    opts: [
+      "They introduce a weakened form of the virus into the body",
+      "They instruct cells to produce a protein that triggers an immune response",
+      "They directly destroy the virus in the bloodstream",
+      "They introduce a DNA segment that permanently alters the human genome"
+    ],
+    ans: 1,
+    exp: "mRNA vaccines deliver messenger RNA instructions into cells to produce the spike protein of the pathogen, triggering an immune response. They do not alter DNA."
+  },
+  {
+    subject: "Science & Technology",
+    q: "India's 'Gaganyaan' mission aims to send Indian astronauts to low-Earth orbit. It is developed by:",
+    opts: ["DRDO","ISRO","HAL","Department of Science and Technology"],
+    ans: 1,
+    exp: "Gaganyaan is India's first human spaceflight programme developed by ISRO. It aims to send three astronauts to an orbit of 400 km for 3 days."
+  },
+  {
+    subject: "Science & Technology",
+    q: "The phenomenon of 'Superconductivity' refers to:",
+    opts: [
+      "Very high electrical resistance at low temperatures",
+      "Zero electrical resistance below a critical temperature",
+      "Very high thermal conductivity at room temperature",
+      "Magnetic levitation at all temperatures"
+    ],
+    ans: 1,
+    exp: "Superconductivity is the property of certain materials to conduct electric current with zero resistance below a critical temperature, discovered by Heike Onnes in 1911."
+  },
+  {
+    subject: "Science & Technology",
+    q: "Which of the following satellite navigation systems belongs to India?",
+    opts: ["GPS","GLONASS","NavIC (IRNSS)","Galileo"],
+    ans: 2,
+    exp: "NavIC (Navigation with Indian Constellation), also known as IRNSS, is India's independent regional navigation satellite system operated by ISRO."
+  },
+  {
+    subject: "Science & Technology",
+    q: "The 'Fermi Paradox' is associated with which field of science?",
+    opts: [
+      "Quantum mechanics",
+      "Search for extra-terrestrial intelligence (SETI) and astrobiology",
+      "Nuclear fusion research",
+      "Particle physics and dark matter"
+    ],
+    ans: 1,
+    exp: "The Fermi Paradox addresses the contradiction between high probability estimates of extra-terrestrial civilizations and the lack of evidence for, or contact with, such civilizations."
+  },
+  {
+    subject: "Science & Technology",
+    q: "In computing, 'Quantum Supremacy' refers to the moment when a quantum computer:",
+    opts: [
+      "Can encrypt data that is unbreakable by classical computers",
+      "Performs a task that classical computers cannot solve in a feasible time",
+      "Operates at absolute zero temperature",
+      "Achieves commercial viability in the marketplace"
+    ],
+    ans: 1,
+    exp: "Google's Sycamore processor (2019) claimed quantum supremacy by completing a specific calculation in 200 seconds that would take the best classical supercomputer thousands of years."
+  },
+  {
+    subject: "Science & Technology",
+    q: "The CRISPR-Cas9 gene editing technology is primarily used for:",
+    opts: [
+      "Sequencing the entire genome",
+      "Precisely editing specific DNA sequences in living organisms",
+      "Producing monoclonal antibodies",
+      "Creating artificial chromosomes"
+    ],
+    ans: 1,
+    exp: "CRISPR-Cas9 is a molecular 'scissors' tool that allows precise editing of specific DNA sequences. Jennifer Doudna and Emmanuelle Charpentier won the 2020 Nobel Prize in Chemistry for it."
+  },
+  {
+    subject: "Science & Technology",
+    q: "India's first indigenously developed Light Combat Aircraft (LCA) is called:",
+    opts: ["MiG-21 Bison","Jaguar","Tejas","Sukhoi Su-30MKI"],
+    ans: 2,
+    exp: "Tejas is the indigenously developed single-engine multirole LCA developed by HAL (Hindustan Aeronautics Limited) and ADA (Aeronautical Development Agency)."
+  },
+  {
+    subject: "Science & Technology",
+    q: "The 'Ozone Layer' primarily absorbs which type of radiation from the Sun?",
+    opts: ["Infrared radiation","Ultraviolet (UV-B and UV-C) radiation","Visible light","X-rays"],
+    ans: 1,
+    exp: "The stratospheric ozone layer absorbs most of the Sun's harmful UV-B (280–315 nm) and UV-C (100–280 nm) radiation, protecting life on Earth."
+  },
+  {
+    subject: "Science & Technology",
+    q: "The 'Internet of Things' (IoT) refers to:",
+    opts: [
+      "A network of servers hosting cloud computing resources",
+      "Interconnection of everyday devices via the internet for data exchange",
+      "Secure military communication systems",
+      "The deep web and dark web infrastructure"
+    ],
+    ans: 1,
+    exp: "IoT refers to the network of physical devices, vehicles, appliances, and other objects embedded with sensors and software to connect and exchange data over the internet."
+  },
+
+  // ── ART, CULTURE & MISCELLANEOUS (10 Qs) ──
+  {
+    subject: "Art & Culture",
+    q: "The 'Natya Shastra', the ancient Indian treatise on performing arts, was authored by:",
+    opts: ["Bharata Muni","Panini","Vatsyayana","Kalidasa"],
+    ans: 0,
+    exp: "Natya Shastra, composed by Bharata Muni (c. 200 BCE–200 CE), is the foundational text on classical Indian theatre, dance, and music."
+  },
+  {
+    subject: "Art & Culture",
+    q: "The Bharatanatyam dance form originated in which region of India?",
+    opts: ["Kerala","Andhra Pradesh","Tamil Nadu","Karnataka"],
+    ans: 2,
+    exp: "Bharatanatyam is a classical dance form originating in Tamil Nadu, traditionally performed in the temples of South India."
+  },
+  {
+    subject: "Art & Culture",
+    q: "The UNESCO-inscribed 'Rani ki Vav' (Queen's Stepwell) is located in which state?",
+    opts: ["Rajasthan","Madhya Pradesh","Gujarat","Maharashtra"],
+    ans: 2,
+    exp: "Rani ki Vav (Queen's Stepwell) in Patan, Gujarat was built by Queen Udayamati of the Solanki dynasty in the 11th century and was inscribed as a UNESCO World Heritage Site in 2014."
+  },
+  {
+    subject: "Art & Culture",
+    q: "The Koodiyattam, inscribed in UNESCO's list of Intangible Cultural Heritage, is a classical performance tradition of which state?",
+    opts: ["Tamil Nadu","Odisha","Kerala","Andhra Pradesh"],
+    ans: 2,
+    exp: "Koodiyattam (Kutiyattam) is the classical Sanskrit theatre of Kerala, performed in the kūttampalam (theatres) of temples. It was the first Indian art form inscribed by UNESCO in 2008."
+  },
+  {
+    subject: "Art & Culture",
+    q: "The annual 'Hornbill Festival' is celebrated in which state of India?",
+    opts: ["Manipur","Nagaland","Meghalaya","Mizoram"],
+    ans: 1,
+    exp: "The Hornbill Festival is a cultural festival held in Nagaland every December (1–10), celebrating the culture and traditions of Naga tribes. It is named after the Indian Hornbill."
+  },
+  {
+    subject: "Art & Culture",
+    q: "Which of the following is associated with the 'Pichwai' style of painting?",
+    opts: ["Ajanta Caves","Nathdwara (Rajasthan)","Madhubani (Bihar)","Pattachitra (Odisha)"],
+    ans: 1,
+    exp: "Pichwai paintings (large cloth paintings of Lord Krishna/Shrinathji) originated in Nathdwara, Rajasthan and are associated with the Pushtimarg sect."
+  },
+  {
+    subject: "Art & Culture",
+    q: "The 'Upanishads' are primarily philosophical texts forming part of which corpus of Vedic literature?",
+    opts: ["Brahmanas","Aranyakas","Vedangas","Vedanta (end of Vedas)"],
+    ans: 3,
+    exp: "The Upanishads are part of the concluding sections of the Vedas (Vedanta = end of Vedas), discussing philosophical concepts of Brahman, Atman, karma, and moksha."
+  },
+  {
+    subject: "Art & Culture",
+    q: "The 'Somnath Temple', one of the twelve Jyotirlingas, is located in which state?",
+    opts: ["Rajasthan","Gujarat","Maharashtra","Madhya Pradesh"],
+    ans: 1,
+    exp: "The Somnath temple (Prabhas Patan, Saurashtra) is in Gujarat, on the western coast. It is the first of the twelve Jyotirlingas of Lord Shiva."
+  },
+  {
+    subject: "Art & Culture",
+    q: "The 'Ajanta Caves' primarily depict which religious tradition?",
+    opts: ["Hinduism","Jainism","Buddhism","Composite (Buddhist and Hindu)"],
+    ans: 2,
+    exp: "Ajanta Caves (Aurangabad, Maharashtra) are 30 rock-cut caves dating from the 2nd century BCE to 6th century CE with Buddhist religious art—paintings and sculptures."
+  },
+  {
+    subject: "Art & Culture",
+    q: "The concept of 'Anekantavada' (many-sidedness of truth) is associated with which Indian philosophical tradition?",
+    opts: ["Buddhism","Jainism","Advaita Vedanta","Charvaka"],
+    ans: 1,
+    exp: "Anekantavada (theory of many-sidedness) is a key Jain philosophical doctrine asserting that reality is complex and can be understood from multiple perspectives (Syadvada/Saptabhangi)."
+  }
+];
+
+// ── STATE ──
+let current = 0;
+let answers = new Array(100).fill(-1);   // -1 = unattempted
+let marked = new Array(100).fill(false);
+let visited = new Array(100).fill(false);
+let timerInterval = null;
+let totalSeconds = 120 * 60;
+let quizSubmitted = false;
+let reviewMode = false;
+
+function startQuiz() {
+  document.getElementById('cover').style.display = 'none';
+  document.getElementById('quiz').style.display = 'block';
+  buildPalette();
+  visited[0] = true;
+  renderQuestion();
+  startTimer();
+}
+
+function startTimer() {
+  timerInterval = setInterval(() => {
+    totalSeconds--;
+    const h = String(Math.floor(totalSeconds / 3600)).padStart(2,'0');
+    const m = String(Math.floor((totalSeconds % 3600) / 60)).padStart(2,'0');
+    const s = String(totalSeconds % 60).padStart(2,'0');
+    const el = document.getElementById('timer');
+    el.textContent = `${h}:${m}:${s}`;
+    if (totalSeconds <= 300) el.className = 'timer-val critical';
+    else if (totalSeconds <= 1200) el.className = 'timer-val warning';
+    if (totalSeconds <= 0) { clearInterval(timerInterval); submitQuiz(); }
+  }, 1000);
+}
+
+function buildPalette() {
+  const grid = document.getElementById('palette');
+  grid.innerHTML = '';
+  for (let i = 0; i < 100; i++) {
+    const btn = document.createElement('button');
+    btn.className = 'pal-btn';
+    btn.textContent = i + 1;
+    btn.id = `pal_${i}`;
+    btn.onclick = () => jumpTo(i);
+    grid.appendChild(btn);
+  }
+}
+
+function jumpTo(idx) {
+  current = idx;
+  visited[idx] = true;
+  renderQuestion();
+}
+
+function renderQuestion() {
+  const Q = questions[current];
+  document.getElementById('q_num').textContent = `Question ${current+1} of 100`;
+  document.getElementById('q_subject').textContent = Q.subject;
+  document.getElementById('q_text').textContent = Q.q;
+
+  const opts = document.getElementById('options_wrap');
+  opts.innerHTML = '';
+  const letters = ['A','B','C','D'];
+  Q.opts.forEach((opt, i) => {
+    const btn = document.createElement('button');
+    btn.className = 'option-btn';
+    if (answers[current] === i) btn.classList.add('selected');
+    if (reviewMode) {
+      if (i === Q.ans) btn.classList.add('correct');
+      else if (answers[current] === i && answers[current] !== Q.ans) btn.classList.add('wrong');
+      btn.disabled = true;
+    }
+    btn.innerHTML = `<span class="option-letter">${letters[i]}.</span><span>${opt}</span>`;
+    if (!reviewMode) btn.onclick = () => selectAnswer(i);
+    opts.appendChild(btn);
+  });
+
+  // Explanation in review mode
+  const expBox = document.getElementById('explanation_box');
+  if (reviewMode) {
+    expBox.textContent = '💡 ' + Q.exp;
+    expBox.classList.add('show');
+  } else {
+    expBox.classList.remove('show');
+  }
+
+  // Mark btn
+  const markBtn = document.getElementById('btn_mark');
+  markBtn.classList.toggle('marked', marked[current]);
+  markBtn.textContent = marked[current] ? '★ Marked for Review' : '★ Mark for Review';
+
+  // Nav btns
+  document.getElementById('btn_prev').disabled = current === 0;
+  document.getElementById('btn_next').disabled = current === 99;
+
+  // Progress
+  const done = answers.filter(a => a !== -1).length;
+  document.getElementById('progress_fill').style.width = `${(done/100)*100}%`;
+
+  updatePalette();
+  updateScoreSummary();
+}
+
+function selectAnswer(idx) {
+  if (quizSubmitted) return;
+  answers[current] = (answers[current] === idx) ? -1 : idx;
+  renderQuestion();
+}
+
+function toggleMark() {
+  marked[current] = !marked[current];
+  renderQuestion();
+}
+
+function navigate(dir) {
+  current += dir;
+  if (current < 0) current = 0;
+  if (current > 99) current = 99;
+  visited[current] = true;
+  renderQuestion();
+}
+
+function updatePalette() {
+  for (let i = 0; i < 100; i++) {
+    const btn = document.getElementById(`pal_${i}`);
+    btn.className = 'pal-btn';
+    if (i === current) btn.classList.add('current');
+    if (marked[i]) btn.classList.add('marked');
+    else if (answers[i] !== -1) btn.classList.add('answered');
+    else if (visited[i]) btn.classList.add('not-answered');
+  }
+}
+
+function calcScore() {
+  let cor = 0, wrg = 0;
+  answers.forEach((a, i) => {
+    if (a === -1) return;
+    if (a === questions[i].ans) cor++;
+    else wrg++;
+  });
+  const score = (cor * 2) - (wrg * 0.66);
+  return { cor, wrg, una: 100 - cor - wrg, score };
+}
+
+function updateScoreSummary() {
+  const { cor, wrg, una, score } = calcScore();
+  document.getElementById('s_att').textContent = cor + wrg;
+  document.getElementById('s_cor').textContent = cor;
+  document.getElementById('s_wrg').textContent = wrg;
+  document.getElementById('s_una').textContent = una;
+  document.getElementById('s_tot').textContent = score.toFixed(2);
+  document.getElementById('live_score_val').textContent = score.toFixed(2);
+}
+
+function confirmSubmit() {
+  const done = answers.filter(a => a !== -1).length;
+  const msg = `You have answered ${done} out of 100 questions.\n\n${100-done} question(s) are unattempted.\n\nAre you sure you want to submit?`;
+  if (confirm(msg)) submitQuiz();
+}
+
+function submitQuiz() {
+  clearInterval(timerInterval);
+  quizSubmitted = true;
+  const { cor, wrg, una, score } = calcScore();
+  const pct = ((score / 200) * 100).toFixed(2);
+  document.getElementById('r_score').textContent = score.toFixed(2);
+  document.getElementById('r_pct').textContent = `${pct}% scored`;
+  document.getElementById('r_cor').textContent = cor;
+  document.getElementById('r_wrg').textContent = wrg;
+  document.getElementById('r_unt').textContent = una;
+
+  let band = '';
+  const s = score;
+  if (s >= 140) band = '🏆 Outstanding — Safe Zone for Prelims Cutoff';
+  else if (s >= 110) band = '✅ Good Performance — Competitive Zone';
+  else if (s >= 80) band = '📚 Average — Needs Improvement in Weak Areas';
+  else band = '❗ Below Average — Intensive Revision Required';
+  document.getElementById('r_band').textContent = band;
+
+  document.getElementById('quiz').style.display = 'none';
+  document.getElementById('result').style.display = 'block';
+}
+
+function reviewAnswers() {
+  reviewMode = true;
+  current = 0;
+  document.getElementById('result').style.display = 'none';
+  document.getElementById('quiz').style.display = 'block';
+  document.querySelector('.top-bar').insertAdjacentHTML('afterend',
+    '<div class="answer-key-indicator">📋 Review Mode — Correct answers highlighted in green · Your wrong answers in red</div>'
+  );
+  document.getElementById('btn_mark').style.display = 'none';
+  document.querySelector('.submit-btn').style.display = 'none';
+  renderQuestion();
+}
+</script>
+</body>
+</html>
